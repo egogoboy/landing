@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>B‑Shop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<!-- Блок 1 -->
+<header class="header">
+  <img src="B-Shop_logo.png" alt="Логотип B‑Shop" class="logo">
+  <div class="header-text">Сервис по поиску и доставке брендовых товаров из США и Европы</div>
+  <button class="button" onclick="handlePay()">Оплатить</button>
+</header>
+
+<!-- Блок 2 -->
+<section class="features-section">
+  <div class="container">
+    <h2 class="section-title">Сервис B-Shop</h2>
+    <p class="features-text">
+        Ваш посредник при заказе товаров из США и Европы
+    </p>
+    <div class="features">
+      <div class="feature-item">
+        <img src="check-mark.png" alt="check-mark" class="feature-icon">
+        <div class="feature-text">
+          <div class="feature-title">10 лет</div>
+          <div class="feature-subtitle">помогаем одеваться в бренды, такие как: Calvin Klein, Tommy jeans, New Balance и другие</div>
+        </div>
+      </div>
+      <div class="feature-item">
+        <img src="check-mark.png" alt="check-mark" class="feature-icon">
+        <div class="feature-text">
+          <div class="feature-title">до 80%</div>
+          <div class="feature-subtitle">экономии на покупках: получайте фирменное качество за приемлемую цену</div>
+        </div>
+      </div>
+      <div class="feature-item">
+        <img src="check-mark.png" alt="check-mark" class="feature-icon">
+        <div class="feature-text">
+          <div class="feature-title">Более 1000</div>
+          <div class="feature-subtitle">заказов ежемесячно доставляем в пункты выдачи по всей России</div>
+        </div>
+      </div>
+      <div class="feature-item">
+        <img src="check-mark.png" alt="check-mark" class="feature-icon">
+        <div class="feature-text">
+          <div class="feature-title">Гарантируем</div>
+          <div class="feature-subtitle">подлинность и качество, также всегда готовы помочь вам с вашими вопросами</div>
+        </div>
+      </div>
+    </div>
+    <div class="social-buttons">
+      <button class="button">ВКонтакте</button>
+      <button class="button">Телеграм</button>
+    </div>
+  </div>
+</section>
+
+<!-- Блок 3 -->
+<section class="pay-section">
+  <h2 class="section-title">Оформление и оплата заказа</h2>
+  <p class="pay-section-text">Нажмите на кнопку "Оплатить" и заполните открывшуюся форму заказа</p>
+  <button class="button" onclick="handlePay()">Оплатить</button>
+</section>
+
+<!-- Блок 4 -->
+<footer class="rights-section">
+  <div class="left">B‑Shop </div>
+  <div class="footer-center">© Все права защищены</br>ИП Филиппова Диана Римасовна</br>ИНН 111111111111</br>ОГРНИП 000000000000000</div>
+  <div class="icons">
+    <img src="vk-icon.svg" alt="VK" onclick="window.open('https://vk.com')">
+    <img src="tg-icon.png" alt="Telegram" onclick="window.open('https://t.me')">
+  </div>
+</footer>
+
+<script>
+  function handlePay() {
+    alert('Переход к оплате...');
+  }
+</script>
+</body>
+</html>
