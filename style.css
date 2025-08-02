@@ -328,6 +328,28 @@
     font-size: 14px;
   }
 
+    .features {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      max-width: 400px;
+      margin: 0 auto 50px auto;
+    }
+
+    .features-text {
+      text-align: left;
+      max-width: 600px;
+      margin: 0 auto 2rem auto;
+      font-size: 1.125rem;
+      line-height: 1.5;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
   .logo {
     width: 70%;
   }
