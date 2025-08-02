@@ -6,6 +6,7 @@
   <title>B‑Shop</title>
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="style.css">
+
 </head>
 <body>
 
@@ -13,7 +14,7 @@
 <header class="header">
   <img src="B-Shop_logo.png" alt="Логотип B‑Shop" class="logo">
   <div class="header-text">Сервис по поиску и доставке брендовых товаров из США и Европы</div>
-  <button class="button" onclick="handlePay()">Оплатить</button>
+  <button class="button" onclick="openModal()">Оплатить</button>
 </header>
 
 <!-- Блок 2 -->
@@ -54,8 +55,8 @@
       </div>
     </div>
     <div class="social-buttons">
-      <button class="button">ВКонтакте</button>
-      <button class="button">Телеграм</button>
+      <button class="button" onclick="openVK()">ВКонтакте</button>
+      <button class="button" onclick="openTG()">Телеграм</button>
     </div>
   </div>
 </section>
@@ -64,7 +65,7 @@
 <section class="pay-section">
   <h2 class="section-title">Оформление и оплата заказа</h2>
   <p class="pay-section-text">Нажмите на кнопку "Оплатить" и заполните открывшуюся форму заказа</p>
-  <button class="button" onclick="handlePay()">Оплатить</button>
+  <button class="button" onclick="openModal()">Оплатить</button>
 </section>
 
 <!-- Блок 4 -->
@@ -72,10 +73,136 @@
   <div class="left">B‑Shop </div>
   <div class="footer-center">© Все права защищены</br>ИП Филиппова Диана Римасовна</br>ИНН 111111111111</br>ОГРНИП 000000000000000</div>
   <div class="icons">
-    <img src="vk-icon.svg" alt="VK" onclick="window.open('https://vk.com')">
-    <img src="tg-icon.png" alt="Telegram" onclick="window.open('https://t.me')">
+    <img src="vk-icon.svg" alt="VK" onclick="openVK()">
+    <img src="tg-icon.png" alt="Telegram" onclick="openTG()">
   </div>
 </footer>
+
+<!-- Modal форма -->
+<div id="paymentModal" class="modal-overlay">
+  <div class="modal">
+    <button class="modal-close" id="closeModal">&times;</button>
+    <h2 class="modal-title">Оплата</h2>
+    <form id="paymentForm" class="modal-form" onsubmit="return validateForm(event)">
+      <label for="orderNumber">
+          Номер заказа
+          <input type="text" id="orderNumber" name="orderNumber" required pattern="\d{4}" placeholder="Последние 4 цифры вашего номера телефона" maxlength="4">
+      </label>
+
+      <label for="name">
+          Ваше имя
+          <input type="text" id="name" name="name" required placeholder="Иван Иванов">
+      </label>
+
+      <label for="phone">
+          Номер телефона
+          <input type="tel" id="phone" name="phone" required placeholder="+7 (___) ___-__-__">
+      </label>
+
+      <label for="email">
+          Адрес электронной почты
+          <input type="email" id="email" name="email" required placeholder="email@example.ru">
+      </label>
+
+      <label for="amount">
+          Сумма оплаты
+          <input type="number" id="amount" name="amount" min="1" required placeholder="1000">
+      </label>
+
+      <label class="checkbox-label">
+        <input type="checkbox" required>
+        Я согласен с <a href="dogovor.pdf" target="_blank">Договором оферты</a>
+      </label>
+
+      <label class="checkbox-label">
+        <input type="checkbox" required>
+        Я согласен с <a href="privacy.pdf" target="_blank">Политикой конфиденциальности</a>
+      </label>
+
+      <button type="submit" class="pay-button">Перейти к оплате</button>
+    </form>
+  </div>
+</div>
+
+<!-- Inputmask.js -->
+<script src="https://unpkg.com/inputmask@5.0.8/dist/inputmask.min.js"></script>
+<script>
+  const vkLink = "https://vk.com/modnayadetvora";
+  const tgLink = "https://t.me/Diana_FFFil";
+
+  function openVK() {
+    window.open(vkLink);
+  }
+
+  function openTG() {
+    window.open(tgLink);
+  }
+
+  const modal = document.getElementById("paymentModal");
+  const openBtn = document.querySelectorAll(".pay-button");
+  const closeBtn = document.getElementById("closeModal");
+  const form = document.getElementById("paymentForm");
+
+  const fields = ["orderNumber", "name", "phone", "email", "amount"];
+
+  // Маска для телефона
+  document.addEventListener("DOMContentLoaded", () => {
+    Inputmask({ mask: "+7 (999) 999-99-99", clearIncomplete: true }).mask("#phone");
+
+    // Восстановить данные, если были сохранены
+    const savedData = localStorage.getItem("paymentFormData");
+    const wasOpen = localStorage.getItem("paymentModalOpen");
+
+    if (savedData) {
+      const data = JSON.parse(savedData);
+      fields.forEach(id => {
+        const input = document.getElementById(id);
+        if (data[id]) input.value = data[id];
+      });
+    }
+
+    if (wasOpen === "true") {
+      modal.style.display = "block";
+    }
+  });
+
+  // Открыть модалку
+  function openModal() {
+    document.getElementById('paymentModal').style.display = 'flex';
+  }
+
+  // Закрыть модалку
+  closeBtn.onclick = () => {
+    modal.style.display = "none";
+    localStorage.setItem("paymentModalOpen", "false");
+  };
+
+  // Закрыть по фону
+  window.onclick = (event) => {
+    if (event.target === modal) {
+      modal.style.display = "none";
+      localStorage.setItem("paymentModalOpen", "false");
+    }
+  };
+
+  // Сохраняем форму в localStorage при изменении
+  form.addEventListener("input", () => {
+    const data = {};
+    fields.forEach(id => {
+      data[id] = document.getElementById(id).value;
+    });
+    localStorage.setItem("paymentFormData", JSON.stringify(data));
+  });
+
+  // При отправке — очищаем сохранённое (опционально)
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    alert("Данные отправлены!");
+    localStorage.removeItem("paymentFormData");
+    localStorage.removeItem("paymentModalOpen");
+    modal.style.display = "none";
+  });
+</script>
 
 <script>
   function handlePay() {
