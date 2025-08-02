@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>B‑Shop</title>
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="css/style.css">
 
 </head>
 <body>
 
 <!-- Блок 1 -->
 <header class="header">
-  <img src="B-Shop_logo.png" alt="Логотип B‑Shop" class="logo">
+  <img src="media/logo/B-Shop_logo.png" alt="Логотип B‑Shop" class="logo">
   <div class="header-text">Сервис по поиску и доставке брендовых товаров из США и Европы</div>
   <button class="button" onclick="openModal()">Оплатить</button>
 </header>
@@ -26,28 +26,28 @@
     </p>
     <div class="features">
       <div class="feature-item">
-        <img src="check-mark.png" alt="check-mark" class="feature-icon">
+        <img src="media/icons/check-mark.png" alt="check-mark" class="feature-icon">
         <div class="feature-text">
           <div class="feature-title">10 лет</div>
           <div class="feature-subtitle">помогаем одеваться в бренды, такие как: Calvin Klein, Tommy jeans, New Balance и другие</div>
         </div>
       </div>
       <div class="feature-item">
-        <img src="check-mark.png" alt="check-mark" class="feature-icon">
+        <img src="media/icons/check-mark.png" alt="check-mark" class="feature-icon">
         <div class="feature-text">
           <div class="feature-title">до 80%</div>
           <div class="feature-subtitle">экономии на покупках: получайте фирменное качество за приемлемую цену</div>
         </div>
       </div>
       <div class="feature-item">
-        <img src="check-mark.png" alt="check-mark" class="feature-icon">
+        <img src="media/icons/check-mark.png" alt="check-mark" class="feature-icon">
         <div class="feature-text">
           <div class="feature-title">Более 1000</div>
           <div class="feature-subtitle">заказов ежемесячно доставляем в пункты выдачи по всей России</div>
         </div>
       </div>
       <div class="feature-item">
-        <img src="check-mark.png" alt="check-mark" class="feature-icon">
+        <img src="media/icons/check-mark.png" alt="check-mark" class="feature-icon">
         <div class="feature-text">
           <div class="feature-title">Гарантируем</div>
           <div class="feature-subtitle">подлинность и качество, также всегда готовы помочь вам с вашими вопросами</div>
@@ -73,8 +73,8 @@
   <div class="left">B‑Shop </div>
   <div class="footer-center">© Все права защищены</br>ИП Филиппова Диана Римасовна</br>ИНН 111111111111</br>ОГРНИП 000000000000000</div>
   <div class="icons">
-    <img src="vk-icon.svg" alt="VK" onclick="openVK()">
-    <img src="tg-icon.png" alt="Telegram" onclick="openTG()">
+    <img src="media/social-media/vk-icon.svg" alt="VK" onclick="openVK()">
+    <img src="media/social-media/tg-icon.png" alt="Telegram" onclick="openTG()">
   </div>
 </footer>
 
@@ -111,103 +111,19 @@
 
       <label class="checkbox-label">
         <input type="checkbox" required>
-        Я согласен с <a href="dogovor.pdf" target="_blank">Договором оферты</a>
+        Я согласен с <a href="media/documents/dogovor.pdf" target="_blank">Договором оферты</a>
       </label>
 
       <label class="checkbox-label">
         <input type="checkbox" required>
-        Я согласен с <a href="privacy.pdf" target="_blank">Политикой конфиденциальности</a>
+        Я согласен с <a href="media/documents/privacy.pdf" target="_blank">Политикой конфиденциальности</a>
       </label>
 
       <button type="submit" class="pay-button">Перейти к оплате</button>
     </form>
   </div>
 </div>
-
-<!-- Inputmask.js -->
 <script src="https://unpkg.com/inputmask@5.0.8/dist/inputmask.min.js"></script>
-<script>
-  const vkLink = "https://vk.com/modnayadetvora";
-  const tgLink = "https://t.me/Diana_FFFil";
-
-  function openVK() {
-    window.open(vkLink);
-  }
-
-  function openTG() {
-    window.open(tgLink);
-  }
-
-  const modal = document.getElementById("paymentModal");
-  const openBtn = document.querySelectorAll(".pay-button");
-  const closeBtn = document.getElementById("closeModal");
-  const form = document.getElementById("paymentForm");
-
-  const fields = ["orderNumber", "name", "phone", "email", "amount"];
-
-  // Маска для телефона
-  document.addEventListener("DOMContentLoaded", () => {
-    Inputmask({ mask: "+7 (999) 999-99-99", clearIncomplete: true }).mask("#phone");
-
-    // Восстановить данные, если были сохранены
-    const savedData = localStorage.getItem("paymentFormData");
-    const wasOpen = localStorage.getItem("paymentModalOpen");
-
-    if (savedData) {
-      const data = JSON.parse(savedData);
-      fields.forEach(id => {
-        const input = document.getElementById(id);
-        if (data[id]) input.value = data[id];
-      });
-    }
-
-    if (wasOpen === "true") {
-      modal.style.display = "block";
-    }
-  });
-
-  // Открыть модалку
-  function openModal() {
-    document.getElementById('paymentModal').style.display = 'flex';
-  }
-
-  // Закрыть модалку
-  closeBtn.onclick = () => {
-    modal.style.display = "none";
-    localStorage.setItem("paymentModalOpen", "false");
-  };
-
-  // Закрыть по фону
-  window.onclick = (event) => {
-    if (event.target === modal) {
-      modal.style.display = "none";
-      localStorage.setItem("paymentModalOpen", "false");
-    }
-  };
-
-  // Сохраняем форму в localStorage при изменении
-  form.addEventListener("input", () => {
-    const data = {};
-    fields.forEach(id => {
-      data[id] = document.getElementById(id).value;
-    });
-    localStorage.setItem("paymentFormData", JSON.stringify(data));
-  });
-
-  // При отправке — очищаем сохранённое (опционально)
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    alert("Данные отправлены!");
-    localStorage.removeItem("paymentFormData");
-    localStorage.removeItem("paymentModalOpen");
-    modal.style.display = "none";
-  });
-</script>
-
-<script>
-  function handlePay() {
-    alert('Переход к оплате...');
-  }
-</script>
+<script src="script/script.js"></script>
 </body>
 </html>
