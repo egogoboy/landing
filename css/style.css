@@ -66,10 +66,10 @@ a {
   justify-content: center;
   text-align: center;
 
-  background-image: url('../media/img/woman.png');
+  background-image: url('../media/img/wwoman.png'), url('../media/logo/frame.png');
   background-repeat: no-repeat;
-  background-size: contain;
-  background-position: calc(100% + 330px) center;
+  background-size: contain, 60rem;
+  background-position: calc(100% + 330px) center, center calc(50% - 25px);
 }
 
 .logo {
@@ -83,11 +83,11 @@ a {
   display: inline-block;
 }
 
-
 .header-text {
   font-size: 26px;
-  margin-bottom: 40px;
+  margin-bottom: 80px;
   color: #224066;
+  max-width: 600px;
 }
 
 /* === Buttons === */
@@ -423,6 +423,18 @@ footer .icons img:hover {
 
   .footer p {
     font-size: 0.9rem;
+  }
+
+  .rights-section .container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center; /* чтобы текст центрировался */
+  }
+
+  .rights-section .left,
+  .rights-section .center,
+  .rights-section .icons {
+    margin-bottom: 15px; /* небольшой отступ между блоками */
   }
 }
 
