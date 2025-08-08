@@ -14,7 +14,7 @@ const openBtn = document.querySelectorAll(".pay-button");
 const closeBtn = document.getElementById("closeModal");
 const form = document.getElementById("paymentForm");
 
-const fields = ["orderNumber", "name", "phone", "email", "amount"];
+const fields = ["orderType", "orderDetailsWrapper", "deliveryDateWrapper", "name", "surname", "phone", "email", "amount"];
 
 // Маска для телефона
 document.addEventListener("DOMContentLoaded", () => {
@@ -37,10 +37,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-    // Открыть модалку
-    function openModal() {
-        document.getElementById('paymentModal').style.display = 'flex';
-    }
+// Открыть модалку
+function openModal() {
+    document.getElementById('paymentModal').style.display = 'flex';
+}
 
 // Закрыть модалку
 closeBtn.onclick = () => {
@@ -66,14 +66,61 @@ form.addEventListener("input", () => {
 });
 
 // При отправке — очищаем сохранённое (опционально)
+/*
 form.addEventListener("submit", (e) => {
     e.preventDefault();
     alert("Данные отправлены!");
-    localStorage.removeItem("paymentFormData");
-    localStorage.removeItem("paymentModalOpen");
-    modal.style.display = "none";
 });
+*/
 
-function handlePay() {
-    alert('Переход к оплате...');
-}
+form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    document.getElementById("loaderOverlay").style.display = "flex";
+
+    const orderType = document.querySelector('input[name="orderType"]:checked').value;
+    const orderInfo = orderType === "order" ? document.getElementById("orderDetails").value : document.getElementById("deliveryDate").value;
+
+    const formData = new URLSearchParams();
+
+    formData.append("orderType", orderType);
+    formData.append("orderInfo", orderInfo);
+    formData.append("name", document.getElementById("name").value);
+    formData.append("surname", document.getElementById("surname").value);
+    formData.append("phone", document.getElementById("phone").value);
+    formData.append("email", document.getElementById("email").value);
+    formData.append("amount", document.getElementById("amount").value);
+
+    const webhookURL = "https://script.google.com/macros/s/AKfycbxRiwMheu8IgtADbGDDHYXjCVFrgtgApMuLTwHd69X3iI3tHcyYyGoITyQLokfpmSZi/exec";
+    try {
+        const response = await fetch(webhookURL, {
+          method: "POST",
+          body: formData,
+        });
+
+        const result = await response.text(); // Можно заменить на .json() если хочешь
+
+        if (response.ok) {
+            localStorage.removeItem("paymentFormData");
+            localStorage.removeItem("paymentModalOpen");
+            document.querySelector("#loaderOverlay .loader-message").textContent = 
+                "Данные отправлены успешно. Перенаправление на страницу оплаты...";
+            setTimeout(() => {
+                document.getElementById("loaderOverlay").style.display = "none";
+                //window.location.href = "/payment";
+            }, 1500);
+
+            modal.style.display = "none";
+            // window.location.href = "https://example.com/success"; // При желании — переадресация
+        } else {
+            document.querySelector("#loaderOverlay .loader-message").textContent = 
+                "Ошибка при отправке данных";
+            setTimeout(() => {
+                document.getElementById("loaderOverlay").style.display = "none";
+            }, 1500);
+        }
+    } catch (error) {
+        console.error("Ошибка при отправке:", error);
+        alert("Произошла ошибка при отправке формы.");
+    }
+});

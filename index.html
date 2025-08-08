@@ -1,129 +1,186 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>B‑Shop</title>
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-<!-- Блок 1 -->
 <header class="header">
-  <img src="media/logo/B-Shop_logo.png" alt="Логотип B‑Shop" class="logo">
-  <div class="header-text">Сервис по поиску и доставке брендовых товаров из США и Европы</div>
+  <img src="media/logo/image.png" alt="Логотип B‑Shop" class="logo" />
+  <div class="header-text">Байер-сервис B‑Shop</div>
   <button class="button" onclick="openModal()">Оплатить</button>
 </header>
 
-<!-- Блок 2 -->
 <section class="features-section">
   <div class="container">
-    <h2 class="section-title">Сервис B-Shop</h2>
+    <h2 class="section-title">Сервис B‑Shop</h2>
     <p class="features-text">
-        Ваш посредник при заказе товаров из США и Европы
+      Экономьте до 90% на брендовых товарах с гарантией качества и широким ассортиментом.
     </p>
+
     <div class="features">
       <div class="feature-item">
-        <img src="media/icons/check-mark.png" alt="check-mark" class="feature-icon">
-        <div class="feature-text">
-          <div class="feature-title">10 лет</div>
-          <div class="feature-subtitle">помогаем одеваться в бренды, такие как: Calvin Klein, Tommy jeans, New Balance и другие</div>
-        </div>
+        <img src="media/icons/check-mark.png" alt="" class="feature-icon" />
+        <div class="feature-subtitle">10 лет помогаем приобретать товары для всей семьи</div>
       </div>
       <div class="feature-item">
-        <img src="media/icons/check-mark.png" alt="check-mark" class="feature-icon">
-        <div class="feature-text">
-          <div class="feature-title">до 80%</div>
-          <div class="feature-subtitle">экономии на покупках: получайте фирменное качество за приемлемую цену</div>
-        </div>
+        <img src="media/icons/check-mark.png" alt="" class="feature-icon" />
+        <div class="feature-subtitle">Мониторим самые выгодные предложения</div>
       </div>
       <div class="feature-item">
-        <img src="media/icons/check-mark.png" alt="check-mark" class="feature-icon">
-        <div class="feature-text">
-          <div class="feature-title">Более 1000</div>
-          <div class="feature-subtitle">заказов ежемесячно доставляем в пункты выдачи по всей России</div>
-        </div>
+        <img src="media/icons/check-mark.png" alt="" class="feature-icon" />
+        <div class="feature-subtitle">Выкупаем с проверенных зарубежных сайтов</div>
       </div>
       <div class="feature-item">
-        <img src="media/icons/check-mark.png" alt="check-mark" class="feature-icon">
-        <div class="feature-text">
-          <div class="feature-title">Гарантируем</div>
-          <div class="feature-subtitle">подлинность и качество, также всегда готовы помочь вам с вашими вопросами</div>
-        </div>
+        <img src="media/icons/check-mark.png" alt="" class="feature-icon" />
+        <div class="feature-subtitle">Организуем быструю и надёжную доставку</div>
+      </div>
+      <div class="feature-item">
+        <img src="media/icons/check-mark.png" alt="" class="feature-icon" />
+        <div class="feature-subtitle">Гарантируем оригинальность товаров</div>
+      </div>
+      <div class="feature-item">
+        <img src="media/icons/check-mark.png" alt="" class="feature-icon" />
+        <div class="feature-subtitle">Всегда на связи и готовы помочь</div>
       </div>
     </div>
+
     <div class="social-buttons">
       <button class="button" onclick="openVK()">ВКонтакте</button>
-      <button class="button" onclick="openTG()">Телеграм</button>
+      <!--button class="button" onclick="openTG()">Телеграм</button-->
     </div>
   </div>
 </section>
 
-<!-- Блок 3 -->
 <section class="pay-section">
   <h2 class="section-title">Оформление и оплата заказа</h2>
-  <p class="pay-section-text">Нажмите на кнопку "Оплатить" и заполните открывшуюся форму заказа</p>
+  <p class="pay-section-text">Нажмите «Оплатить» и заполните форму заказа</p>
   <button class="button" onclick="openModal()">Оплатить</button>
 </section>
 
-<!-- Блок 4 -->
 <footer class="rights-section">
-  <div class="left">B‑Shop </div>
-  <div class="footer-center">© Все права защищены</br>ИП Филиппова Диана Римасовна</br>ИНН 111111111111</br>ОГРНИП 000000000000000</div>
-  <div class="icons">
-    <img src="media/social-media/vk-icon.svg" alt="VK" onclick="openVK()">
-    <img src="media/social-media/tg-icon.png" alt="Telegram" onclick="openTG()">
+  <div class="container">
+    <div class="left">B‑Shop</div>
+    <div class="center">
+      <p>
+        © Все права защищены<br />
+        ИП Филиппова Диана Римасовна<br />
+        ИНН 111111111111<br />
+        ОГРНИП 000000000000000<br />
+        <a href="media/documents/privacy.pdf" target="_blank">Политика конфиденциальности</a><br />
+        <a href="media/documents/dogovor.pdf" target="_blank">Договор оферты</a>
+      </p>
+    </div>
+    <div class="icons">
+      <img src="media/social-media/vk-icon.svg" alt="VK" onclick="openVK()" />
+      <!--img src="media/social-media/tg-icon.png" alt="Telegram" onclick="openTG()"-->
+    </div>
   </div>
 </footer>
 
-<!-- Modal форма -->
-<div id="paymentModal" class="modal-overlay">
+<!-- Модальное окно -->
+<div id="paymentModal" class="modal-overlay" style="display:none;">
   <div class="modal">
     <button class="modal-close" id="closeModal">&times;</button>
     <h2 class="modal-title">Оплата</h2>
-    <form id="paymentForm" class="modal-form" onsubmit="return validateForm(event)">
-      <label for="orderNumber">
-          Номер заказа
-          <input type="text" id="orderNumber" name="orderNumber" required pattern="\d{4}" placeholder="Последние 4 цифры вашего номера телефона" maxlength="4">
+    <form id="paymentForm" class="modal-form">
+
+      <label class="form-label">Что оплачиваете?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="orderType" value="order" checked> Заказ</label>
+        <label><input type="radio" name="orderType" value="delivery"> Доставка</label>
+      </div>
+
+      <!-- Поля заказа -->
+      <div id="orderDetailsWrapper">
+        <label class="form-label" for="orderDetails">
+          Название + номер:
+          <input type="text" id="orderDetails" name="orderDetails" placeholder="Например, Томми 15" required>
+        </label>
+      </div>
+
+      <!-- Поля доставки -->
+      <div id="deliveryDateWrapper" style="display: none;">
+        <label class="form-label" for="deliveryDate">
+            Дата доставки:
+            <input type="date" id="deliveryDate" name="deliveryDate">
+        </label>
+      </div>
+
+      <label class="form-label">
+        Ваше имя
+        <input type="text" name="name" id="name" required placeholder="Иван" />
       </label>
 
-      <label for="name">
-          Ваше имя
-          <input type="text" id="name" name="name" required placeholder="Иван Иванов">
+      <label class="form-label">
+        Ваша фамилия
+        <input type="text" name="surname" id="surname" required placeholder="Иванов" />
       </label>
 
-      <label for="phone">
-          Номер телефона
-          <input type="tel" id="phone" name="phone" required placeholder="+7 (___) ___-__-__">
+      <label class="form-label">
+        Номер телефона
+        <input type="tel" name="phone" id="phone" required placeholder="+7 (___) ___-__-__" />
       </label>
 
-      <label for="email">
-          Адрес электронной почты
-          <input type="email" id="email" name="email" required placeholder="email@example.ru">
+      <label class="form-label">
+        Email
+        <input type="email" name="email" id="email" required placeholder="email@example.ru" />
       </label>
 
-      <label for="amount">
-          Сумма оплаты
-          <input type="number" id="amount" name="amount" min="1" required placeholder="1000">
+      <label class="form-label">
+        Сумма
+        <input type="number" name="amount" id="amount" required min="1" placeholder="1000" />
       </label>
 
       <label class="checkbox-label">
-        <input type="checkbox" required>
-        Я согласен с <a href="media/documents/dogovor.pdf" target="_blank">Договором оферты</a>
+        <input type="checkbox" required />
+        Я согласен с <a class="modal-ref" href="media/documents/dogovor.pdf" target="_blank">Договором оферты</a>
       </label>
 
       <label class="checkbox-label">
-        <input type="checkbox" required>
-        Я согласен с <a href="media/documents/privacy.pdf" target="_blank">Политикой конфиденциальности</a>
+        <input type="checkbox" required />
+        Я согласен с <a class="modal-ref" href="media/documents/privacy.pdf" target="_blank">Политикой конфиденциальности</a>
       </label>
 
       <button type="submit" class="pay-button">Перейти к оплате</button>
     </form>
   </div>
 </div>
+
+<!-- Loader overlay -->
+<div id="loaderOverlay" class="loader-overlay" style="display:none;">
+  <div class="loader-message">Отправка данных...</div>
+</div>
+
 <script src="https://unpkg.com/inputmask@5.0.8/dist/inputmask.min.js"></script>
 <script src="script/script.js"></script>
+<script>
+  const orderTypeRadios = document.querySelectorAll('input[name="orderType"]');
+  const orderDetailsWrapper = document.getElementById("orderDetailsWrapper");
+  const deliveryDateWrapper = document.getElementById("deliveryDateWrapper");
+  const orderDetailsInput = document.getElementById("orderDetails");
+  const deliveryDateInput = document.getElementById("deliveryDate");
+
+  // Обработка переключения типа
+  orderTypeRadios.forEach(radio => {
+    radio.addEventListener("change", () => {
+      if (radio.checked && radio.value === "order") {
+        orderDetailsWrapper.style.display = "block";
+        deliveryDateWrapper.style.display = "none";
+        orderDetailsInput.required = true;
+        deliveryDateInput.required = false;
+      } else if (radio.checked && radio.value === "delivery") {
+        orderDetailsWrapper.style.display = "none";
+        deliveryDateWrapper.style.display = "block";
+        orderDetailsInput.required = false;
+        deliveryDateInput.required = true;
+      }
+    });
+  });
+</script>
 </body>
 </html>
