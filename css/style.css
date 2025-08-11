@@ -38,7 +38,6 @@ a {
   margin-bottom: 1rem;
 }
 
-
 .radio-group {
   display: flex;
   gap: 1rem;
@@ -80,7 +79,7 @@ a {
 }
 
 .frame {
-  max-width: 600px;
+  max-width: 400px;
   width: 100%;
 
   background: url('../media/logo/frame.png') center/contain no-repeat;
@@ -93,12 +92,12 @@ a {
 }
 
 .logo {
-  max-width: 600px;
+  max-width: 400px;
   margin-bottom: 1rem;
 }
 
 .header-text {
-  font-size: 1.8rem;
+  font-size: 1.2rem;
   max-width: 100%;
   color: #224066;
 }
