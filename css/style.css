@@ -66,10 +66,10 @@ a {
   justify-content: center;
   text-align: center;
 
-  background-image: url('../media/img/wwoman.png'), url('../media/logo/frame.png');
+  background-image: url('../media/logo/frame.png'), url('../media/img/d-man.png'), url('../media/img/d-woman.png'),  url('../media/img/background.png');
   background-repeat: no-repeat;
-  background-size: contain, 60rem;
-  background-position: calc(100% + 330px) center, center calc(50% - 25px);
+  background-size: 45%, contain, contain, 115%;
+  background-position: center calc(50% - 55px), calc(100% + 70px) center,calc(-5%) center, center;
 }
 
 .logo {
@@ -423,18 +423,6 @@ footer .icons img:hover {
 
   .footer p {
     font-size: 0.9rem;
-  }
-
-  .rights-section .container {
-    flex-direction: column;
-    align-items: center;
-    text-align: center; /* чтобы текст центрировался */
-  }
-
-  .rights-section .left,
-  .rights-section .center,
-  .rights-section .icons {
-    margin-bottom: 15px; /* небольшой отступ между блоками */
   }
 }
 
