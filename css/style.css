@@ -437,12 +437,15 @@ footer .icons img:hover {
     left: -100px;
   }
 
-  .logo {
-    max-width: 350px;
-    position: center;
-  }
 
   .frame {
+    max-width: 400px;
+    width: 100%;
+
+    padding: 5rem 7rem;
+  }
+
+  .logo {
     max-width: 400px;
   }
 
@@ -499,7 +502,10 @@ footer .icons img:hover {
   }
 
   .frame {
-    padding: 2rem 5rem;
+    width: 100%;
+
+    padding: 2rem;
+    margin-bottom: 2rem;
   }
 
   .logo {
@@ -507,13 +513,8 @@ footer .icons img:hover {
   }
 
   .header-text {
-    font-size: 18px;
-    max-width: 100%;
-  }
-
-  .pay-button {
-    font-size: 0.9rem;
-    padding: 10px 20px;
+    max-width: 300px;
+    font-size: 0.8rem;
   }
 
   .d-man, 
