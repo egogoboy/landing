@@ -60,34 +60,62 @@ a {
 .header {
   position: relative;
   height: 100vh;
+
+  background: url('../media/img/background.png') center/cover no-repeat;
+  overflow: hidden;
+}
+
+.header-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  z-index: 2;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   text-align: center;
+}
 
-  background-image: url('../media/logo/frame.png'), url('../media/img/d-man.png'), url('../media/img/d-woman.png'),  url('../media/img/background.png');
-  background-repeat: no-repeat;
-  background-size: 45%, contain, contain, 115%;
-  background-position: center calc(50% - 55px), calc(100% + 70px) center,calc(-5%) center, center;
+.frame {
+  background: url('../media/logo/frame.png') center/contain no-repeat;
+  padding: 6rem 8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .logo {
-  max-width: 700px;
-  width: 100%;
-  margin-bottom: 20px;
-}
-
-.logo-container {
-  position: relative;
-  display: inline-block;
+  max-width: 600px;
+  margin-bottom: 1rem;
 }
 
 .header-text {
-  font-size: 26px;
-  margin-bottom: 80px;
-  color: #224066;
+  font-size: 1.8rem;
   max-width: 600px;
+  color: #224066;
+}
+
+.button {
+  position: relative;
+  z-index: 10;
+}
+
+.d-man, .d-woman { 
+  position: absolute;
+  bottom: 0;
+  max-height: 95%;
+}
+
+.d-man {
+  right: -20px;
+}
+
+.d-woman {
+  left: -20px;
 }
 
 /* === Buttons === */
@@ -220,7 +248,7 @@ a {
 }
 
 .modal {
-  background: #fff;
+  background: #f7f2e7;
   border-radius: 8px;
   padding: 2rem;
   max-width: 500px;
@@ -347,31 +375,90 @@ footer .icons img:hover {
   transform: scale(1.2);
 }
 
-
 footer .icons img:hover {
   transform: scale(1.2);
 }
 
+/* === Loader Overlay === */
+.loader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.loader-message {
+  background: white;
+  padding: 20px 30px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
 /* === Responsive === */
+@media (max-width: 1500px) {
+  .d-man,
+  .d-woman {
+    max-height: 80%;
+  }
+
+  .d-man {
+    right: -100px;
+  }
+
+  .d-woman {
+    left: -100px;
+  }
+}
+
 @media (max-width: 1024px) {
+
+  .d-man,
+  .d-woman {
+    max-height: 70%;
+  }
+
+  .d-man {
+    right: -100px;
+  }
+
+  .d-woman {
+    left: -100px;
+  }
+
+  .logo {
+    max-width: 350px;
+    position: center;
+  }
+
+  .frame {
+    max-width: 400px;
+  }
+
+  .header-text {
+    font-size: 18px;
+    max-width: 350px;
+  }
+
   .features {
     grid-template-columns: 1fr;
     gap: 1.5rem;
     max-width: 600px;
   }
 
-  .header-content,
   .feature-item,
   .logo,
   .footer {
     flex-direction: column;
     align-items: center;
     text-align: center;
-  }
-
-  .logo {
-    width: 60%;
-    max-width: 250px;
   }
 
   .section h2,
@@ -409,7 +496,21 @@ footer .icons img:hover {
   }
 
   .logo {
-    width: 70%;
+    max-width: 350px;
+  }
+
+  .d-man, 
+  .d-woman {
+    display: none;
+  }
+
+  .frame {
+    max-width: 300px;
+  }
+
+  .header-text {
+    font-size: 18px;
+    max-width: 350px;
   }
 
   .pay-button {
@@ -424,27 +525,23 @@ footer .icons img:hover {
   .footer p {
     font-size: 0.9rem;
   }
-}
+  footer {
+    height: auto; /* чтобы футер подстраивался под контент */
+    padding: 20px;
+  }
 
-/* === Loader Overlay === */
-.loader-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(255,255,255,0.8);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-}
+  footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-.loader-message {
-  background: white;
-  padding: 20px 30px;
-  border-radius: 8px;
-  font-size: 18px;
-  font-weight: bold;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  footer .left,
+  footer .center,
+  footer .icons {
+    position: static; /* убрать абсолютное позиционирование */
+    transform: none;
+    text-align: center;
+    white-space: normal; /* разрешить перенос строк */
+  }
 }
