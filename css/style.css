@@ -501,19 +501,22 @@ footer .icons img:hover {
   }
 
   .frame {
+    max-width: 100vw;
     width: 100%;
 
-    padding: 2rem;
+    padding: 1rem 3rem;
     margin-bottom: 2rem;
   }
 
   .logo {
-    max-width: 300px;
+    max-width: 100%;
+
+    margin-bottom: 0;
   }
 
   .header-text {
-    max-width: 300px;
-    font-size: 0.8rem;
+    width: 100%;
+    font-size: 0.45rem;
   }
 
   .d-man, 
