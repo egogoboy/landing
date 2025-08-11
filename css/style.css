@@ -80,12 +80,16 @@ a {
 }
 
 .frame {
+  max-width: 600px;
+  width: 100%;
+
   background: url('../media/logo/frame.png') center/contain no-repeat;
   padding: 6rem 8rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+
 }
 
 .logo {
@@ -95,7 +99,7 @@ a {
 
 .header-text {
   font-size: 1.8rem;
-  max-width: 600px;
+  max-width: 100%;
   color: #224066;
 }
 
@@ -443,8 +447,7 @@ footer .icons img:hover {
   }
 
   .header-text {
-    font-size: 18px;
-    max-width: 350px;
+    font-size: 1.2rem;
   }
 
   .features {
@@ -495,27 +498,27 @@ footer .icons img:hover {
     font-size: 14px;
   }
 
-  .logo {
-    max-width: 350px;
-  }
-
-  .d-man, 
-  .d-woman {
-    display: none;
-  }
-
   .frame {
+    padding: 2rem 5rem;
+  }
+
+  .logo {
     max-width: 300px;
   }
 
   .header-text {
     font-size: 18px;
-    max-width: 350px;
+    max-width: 100%;
   }
 
   .pay-button {
     font-size: 0.9rem;
     padding: 10px 20px;
+  }
+
+  .d-man, 
+  .d-woman {
+    display: none;
   }
 
   .section h2 {
@@ -525,8 +528,9 @@ footer .icons img:hover {
   .footer p {
     font-size: 0.9rem;
   }
+
   footer {
-    height: auto; /* чтобы футер подстраивался под контент */
+    height: auto;
     padding: 20px;
   }
 
@@ -539,9 +543,9 @@ footer .icons img:hover {
   footer .left,
   footer .center,
   footer .icons {
-    position: static; /* убрать абсолютное позиционирование */
+    position: static;
     transform: none;
     text-align: center;
-    white-space: normal; /* разрешить перенос строк */
+    white-space: normal;
   }
 }
