@@ -79,29 +79,10 @@ a {
   text-align: center;
 }
 
-.frame {
-  max-width: 400px;
-  width: 100%;
-
-  background: url('../media/logo/frame.png') center/contain no-repeat;
-  padding: 6rem 8rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-
-}
-
 .logo {
-  max-width: 400px;
+  max-width: calc(600px - (1900px - 100vw) / 10);
   height: auto;
   margin-bottom: 1rem;
-}
-
-.header-text {
-  font-size: 1.2rem;
-  max-width: 100%;
-  color: #224066;
 }
 
 .button {
@@ -112,15 +93,29 @@ a {
 .d-man, .d-woman { 
   position: absolute;
   bottom: 0;
-  max-height: 95%;
+  max-height: 95vh;
+  height: 95vh;
 }
 
 .d-man {
-  right: -20px;
+  right: calc(-5vw + 20px);
 }
 
 .d-woman {
-  left: -20px;
+  left: calc(-5vw + 20px);
+}
+
+.d-man,
+.d-woman {
+  max-height: calc(80vh - (1500px - 100vw) / 10);
+}
+
+.d-man {
+  right: calc(-4vw - (1500px - 100vw) / 5);
+}
+
+.d-woman {
+  left: calc(-4vw - (1500px - 100vw) / 5);
 }
 
 /* === Buttons === */
@@ -409,49 +404,12 @@ footer .icons img:hover {
 
 /* === Responsive === */
 @media (max-width: 1500px) {
-  .d-man,
-  .d-woman {
-    max-height: 80%;
-  }
-
-  .d-man {
-    right: -100px;
-  }
-
-  .d-woman {
-    left: -100px;
-  }
 }
 
 @media (max-width: 1024px) {
 
-  .d-man,
-  .d-woman {
-    max-height: 70%;
-  }
-
-  .d-man {
-    right: -100px;
-  }
-
-  .d-woman {
-    left: -100px;
-  }
-
-
-  .frame {
-    max-width: 400px;
-    width: 100%;
-
-    padding: 5rem 7rem;
-  }
-
   .logo {
     max-width: 400px;
-  }
-
-  .header-text {
-    font-size: 1.2rem;
   }
 
   .features {
@@ -460,7 +418,6 @@ footer .icons img:hover {
     max-width: 600px;
   }
 
-  .feature-item,
   .logo,
   .footer {
     flex-direction: column;
@@ -502,32 +459,11 @@ footer .icons img:hover {
     font-size: 14px;
   }
 
-  .frame {
-    max-width: 100vw;
-    width: 100%;
-
-    padding: 4rem 5rem 3rem;
-    margin-bottom: 2rem;
-  }
-
   .logo {
-    max-width: 120%;
-    width: 110%;
-
-    margin-bottom: 0;
-  }
-
-  .header-text {
-    width: 130%;
-    max-width: 122%;
-
-    font-size: clamp(2px, 3vw, 18px);
-
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-
-    text-align: center;
+    max-width: 90vw;
+    height: auto;
+    margin-bottom: 1;
+    display: block;
   }
 
   .d-man, 
@@ -561,36 +497,5 @@ footer .icons img:hover {
     transform: none;
     text-align: center;
     white-space: normal;
-  }
-}
-
-@media(max-width: 400px) {
-  .frame {
-    max-width: 100vw;
-    width: 100%;
-
-    padding: 3rem 3rem 2rem;
-    margin-bottom: 2rem;
-  }
-
-  
-  .header-text {
-    font-size: clamp(2px, 2.5vw, 18px);
-  }
-
-}
-
-@media(max-width: 200px) {
-  .frame {
-    background-image: none;
-  }
-
-  .logo {
-    max-width: 120%;
-    width: 120%;
-  }
-
-  .header-text {
-    display: none;
   }
 }
