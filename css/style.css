@@ -61,6 +61,7 @@ a {
   height: 100vh;
 
   background: url('../media/img/background.png') center/cover no-repeat;
+  background-color: #f7d8a4;
   overflow: hidden;
 }
 
@@ -93,6 +94,7 @@ a {
 
 .logo {
   max-width: 400px;
+  height: auto;
   margin-bottom: 1rem;
 }
 
@@ -511,7 +513,6 @@ footer .icons img:hover {
   .logo {
     max-width: 120%;
     width: 110%;
-    height: 110%;
 
     margin-bottom: 0;
   }
@@ -587,7 +588,6 @@ footer .icons img:hover {
   .logo {
     max-width: 120%;
     width: 120%;
-    height: 120%;
   }
 
   .header-text {
