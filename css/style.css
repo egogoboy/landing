@@ -504,21 +504,23 @@ footer .icons img:hover {
     max-width: 100vw;
     width: 100%;
 
-    padding: 2rem 2rem;
+    padding: 4rem 5rem 3rem;
     margin-bottom: 2rem;
   }
 
   .logo {
-    max-width: 90%;
+    max-width: 120%;
+    width: 110%;
+    height: 110%;
 
     margin-bottom: 0;
   }
 
   .header-text {
-    width: 100%;
-    max-width: 100%;
+    width: 130%;
+    max-width: 122%;
 
-    font-size: clamp(2px, 2vw, 24px);
+    font-size: clamp(2px, 3vw, 18px);
 
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -558,5 +560,37 @@ footer .icons img:hover {
     transform: none;
     text-align: center;
     white-space: normal;
+  }
+}
+
+@media(max-width: 400px) {
+  .frame {
+    max-width: 100vw;
+    width: 100%;
+
+    padding: 3rem 3rem 2rem;
+    margin-bottom: 2rem;
+  }
+
+  
+  .header-text {
+    font-size: clamp(2px, 2.5vw, 18px);
+  }
+
+}
+
+@media(max-width: 200px) {
+  .frame {
+    background-image: none;
+  }
+
+  .logo {
+    max-width: 120%;
+    width: 120%;
+    height: 120%;
+  }
+
+  .header-text {
+    display: none;
   }
 }
