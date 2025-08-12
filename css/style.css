@@ -451,7 +451,7 @@ footer .icons img:hover {
   }
 
   .header {
-    background-position: left bottom;
+    background-position: right;
   }
 
   .header-content {
@@ -476,17 +476,22 @@ footer .icons img:hover {
     display: block;
   }
 
-  .d-man,
-  .d-woman {
+
+  .d-man, .d-woman { 
+    position: absolute;
+    left: 50%; /* центрируем по горизонтали */
+    transform: translateX(-50%); /* сдвигаем ровно на половину ширины влево, чтобы центрировать элемент */
+    bottom: 0;
     max-height: calc(73vh - (1500px - 100vw) / 10);
+    height: 95vh;
   }
 
   .d-man {
-    right: calc(-4vw - (1500px - 100vw) / 10);
+    transform: translateX(calc(-50% + 150vh / 10 + 30vw / 10));
   }
 
   .d-woman {
-    left: calc(-4vw - (1500px - 100vw) / 10);
+    transform: translateX(calc(-50% - 150vh / 10 - 30vw / 10)); /* влево */
   }
 
   .section h2 {
