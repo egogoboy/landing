@@ -3,7 +3,7 @@ body {
   font-family: 'Merriweather', serif;
   font-size: 18px;
   line-height: 1.7;
-  background: #f5f0ec;
+  background: #f4e6d7;
   color: #333;
 }
 
@@ -172,7 +172,7 @@ a {
 }
 
 .features-section {
-  background-color: #f9f6f2;
+  background-color: #faeddb;
 }
 
 .rights-section {
@@ -460,7 +460,8 @@ footer .icons img:hover {
   }
 
   .logo {
-    max-width: 90vw;
+    max-width: 450px;
+    width: 90vw;
     height: auto;
     margin-bottom: 1;
     display: block;
